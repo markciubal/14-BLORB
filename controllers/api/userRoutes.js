@@ -3,8 +3,7 @@ const { User } = require('../../models');
 
 router.post('/login', async (req, res) => {
   try {
-    // TODO: Add a comment describing the functionality of this expression
-    // Finding the user where the email is equal to the request's body email value.
+    // Find the user who matches the posted e-mail address
     const userData = await User.findOne({ where: { email: req.body.email } });
 
     if (!userData) {
@@ -14,9 +13,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    // TODO: Add a comment describing the functionality of this expression
-    // Usingg middleware to check if the password is correct.
-    // Doing this under the hood: return bcrypt.compareSync(loginPw, this.password);
+    // Verify the posted password with the password store in the database
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
@@ -26,8 +23,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    // TODO: Add a comment describing the functionality of this method
-    // Saving the session if login is correct.
+    // Create session variables based on the logged in user
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
@@ -40,10 +36,23 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.post('/create', async (req, res) => {
+  try {
+    const newUser = await User.create({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password
+    });
+    res.status(200).json("Successfully created account.");
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
-    // TODO: Add a comment describing the functionality of this method
-    // If they send a POST request to logout, the code below destroys the user's session.
+    // Remove the session variables
     req.session.destroy(() => {
       res.status(204).end();
     });
