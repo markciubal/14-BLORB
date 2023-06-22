@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post, User } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -41,9 +41,15 @@ router.get('/user/:id', async (req, res) => {
   try {
     // Find the user who matches the posted e-mail address
     const postData = await Post.findAll({
+      include: [
+        {
+          model: User
+        }        
+      ],
       where: {
         user_id: req.params.id
-      }
+      },
+      // attributes: { exclude: ['password'] },
     });
 
     if (!postData) {
