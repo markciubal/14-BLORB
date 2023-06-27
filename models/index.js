@@ -1,7 +1,7 @@
 const User = require('./User');
 const Post = require('./Post');
 
-Post.hasOne(User, {
+Post.belongsTo(User, {
     foreignKey: 'user_id'
 });
 

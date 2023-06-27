@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Post } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Prevent non logged in users from viewing the homepage
@@ -48,6 +48,26 @@ router.get('/post', withAuth, (req, res) => {
     return;
   } else {
     res.render('post');
+  }
+});
+
+router.get('/browse', async (req, res) => {
+  try {
+    const postData = await Post.findAll({
+      include: [
+        {
+          model: User
+        }        
+      ]
+    });
+
+    const posts = postData.map((project) => project.get({ plain: true }));
+    res.render('browse', {
+      posts,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 

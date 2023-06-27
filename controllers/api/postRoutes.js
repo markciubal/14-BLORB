@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Post, User } = require('../../models');
+const { update } = require('../../models/User');
 
 router.get('/', async (req, res) => {
   try {
@@ -49,7 +50,7 @@ router.get('/user/:id', async (req, res) => {
       where: {
         user_id: req.params.id
       },
-      // attributes: { exclude: ['password'] },
+      attributes: { exclude: ['password', 'user_id'] },
     });
 
     if (!postData) {
@@ -77,4 +78,22 @@ router.post('/create', async (req, res) => {
     res.status(400).json(err);
   }
 })
+
+router.patch('/update/', async (req, res) => {
+  try {
+    let updateData = await Post.update({
+      title: req.body.title,
+      body: req.body.body,
+    }, {
+      where: {
+        id: req.body.id
+      }
+    });
+    console.log('test', updateData);
+    res.status(200).json("Successfully updated post.");
+  } catch (err) {
+    res.status(400).json(err);
+  }
+})
+
 module.exports = router;
