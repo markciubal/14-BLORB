@@ -47,28 +47,36 @@ router.get('/post', withAuth, (req, res) => {
     res.redirect('/');
     return;
   } else {
-    res.render('post');
+    res.render('post', {
+        logged_in: req.session.logged_in
+      });
   }
 });
 
-router.get('/browse', async (req, res) => {
-  try {
-    const postData = await Post.findAll({
-      include: [
-        {
-          model: User
-        }        
-      ]
-    });
-
-    const posts = postData.map((project) => project.get({ plain: true }));
-    res.render('browse', {
-      posts,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
+router.get('/browse', withAuth, async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect('/');
+  } else {
+      try {
+      const postData = await Post.findAll({
+        include: [
+          {
+            model: User
+          }        
+        ]
+      });
+      var current_user = req.session.user_id;
+      const posts = postData.map((project) => project.get({ plain: true }));
+      res.render('browse', {
+        posts,
+        logged_in: req.session.logged_in,
+        current_user,
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
   }
+  
 });
 
 module.exports = router;

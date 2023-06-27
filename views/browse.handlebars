@@ -4,14 +4,13 @@
     <h2>{{{get_emoji}}} {{post.title}}</h2>
   </div>
   <div>
-    <p>{{post.body}}</p>
+    <p>{{post.body}} {{logged_in}}</p>
   </div>
   <div>
     <h7>By: {{post.user.name}} @ {{post.createdAt}}</a>
-      {{#ifEquals post.id user_id}}
+      {{#ifEquals post.user_id current_user}}
       {{/ifEquals}}
     </h7>
-
   </div>
 </div>
 {{/each}}
