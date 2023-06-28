@@ -103,4 +103,23 @@ router.patch('/update', async (req, res) => {
   }
 })
 
+router.delete('/delete', async (req, res) => {
+  console.log("id", req.body.id);
+  const post = await Post.findByPk(req.body.id, {
+    raw: true
+  });
+  if (post.user_id === req.session.user_id) {
+    try {
+      let deletePost = await Post.destroy({
+        where: {
+          id: req.body.id
+        }
+      });
+      res.status(200).json("Successfully updated post.");
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  }
+})
+
 module.exports = router;

@@ -54,7 +54,33 @@ router.get('/post', withAuth, (req, res) => {
   }
 });
 
-router.get('/browse', withAuth, async (req, res) => {
+router.get('/browse', async (req, res) => {
+  try {
+    const postData = await Post.findAll({
+      include: [
+        {
+          model: User
+        }, 
+        {
+          model: Comment
+        }     
+      ],
+      order: [['id', 'DESC']]
+    });
+    var current_user = req.session.user_id;
+    const posts = postData.map((project) => project.get({ plain: true }));
+    console.log(posts);
+    res.render('browse', {
+      posts,
+      logged_in: req.session.logged_in,
+      current_user: current_user,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/dashboard', withAuth, async (req, res) => {
   if (!req.session.logged_in) {
     res.redirect('/');
   } else {
@@ -67,7 +93,10 @@ router.get('/browse', withAuth, async (req, res) => {
           {
             model: Comment
           }     
-        ]
+        ],
+        where: {
+          user_id: req.session.user_id
+        }
       });
       var current_user = req.session.user_id;
       const posts = postData.map((project) => project.get({ plain: true }));
@@ -81,7 +110,6 @@ router.get('/browse', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
   }
-  
 });
 
 router.get('/update/:id', async (req, res) => {

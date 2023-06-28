@@ -9,7 +9,7 @@ const logout = async () => {
     // TODO: Add a comment describing the functionality of this statement
     document.location.replace('/login');
   } else {
-    alert('Failed to log out');
+    alert('Sad to see you go!');
   }
 };
 
