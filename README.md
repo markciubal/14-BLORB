@@ -1,12 +1,31 @@
 
-https://github.com/markciubal/14-Model-View-Controller/assets/1228604/3ff392c1-669d-4f60-bcc0-d3fdf9fe26c0
+https://github.com/markciubal/14-Model-View-Controller/assets/1228604/3ff392c1-669d-4f60-bcc0-
+
+[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
+
+## Table of Contents
+- [Description](#description)
+- [Acceptance Criteria](#acceptance-criteria)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contribution](#contribution)
+- [Tests](#tests)
+- [Github](#github)
+- [Questions](#questions)
+- [License](#license)
+- [Credits](#credits)
+
+## Description
+The Model, View, Controller (MVC) homework was an exercise in using Handlebars as an MVC framework. By using Express with Handlebars, we were able to build out templates for our sites and separate our logic for the application to be organized. I learned quite a lot from this project, particularly with how routes work, and how data can be passed to the views by the controllers, while fetching data using the models.
+
+This application was meant to satisfy the following user story:
 
 ## Acceptance Criteria
 
 ```md
 GIVEN a CMS-style blog site
 WHEN I visit the site for the first time
-✅  THEN I am presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in
+✅ THEN I am presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in
 WHEN I click on the homepage option
 ✅ THEN I am taken to the homepage
 WHEN I click on any other links in the navigation
@@ -38,3 +57,48 @@ WHEN I click on the logout option in the navigation
 WHEN I am idle on the site for more than a set time
 ✅ THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
 ```
+
+## Installation
+```bash
+npm install
+```
+
+## Usage
+```bash
+node index.js
+```
+
+## Contribution
+Want to see something changed? Submit a merge request!
+
+## Tests
+```bash
+No tests.
+```
+
+## Questions
+### Have questions for me?
+[Email me!](mailto:mark.ciubal@gmail.com)
+
+### Outstanding Questions
+N/A
+
+## Github
+Github: [markciubal](https://www.github.com/markciubal)
+
+## License
+
+### The Unilicense
+
+This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or distribute this software, either in source code form or as a compiled binary, for any purpose, commercial or non-commercial, and by any means.
+
+In jurisdictions that recognize copyright laws, the author or authors of this software dedicate any and all copyright interest in the software to the public domain. We make this dedication for the benefit of the public at large and to the detriment of our heirs and successors. We intend this dedication to be an overt act of relinquishment in perpetuity of all present and future rights to this software under copyright law.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+For more information, please refer to <http://unlicense.org/>
+
+## Credits
+Made by: Mark Ciubal
