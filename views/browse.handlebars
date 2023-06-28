@@ -1,15 +1,21 @@
 {{#each posts as |post| }}
 <div class="row align-center">
   <div>
-    <h2>{{{get_emoji}}} {{post.title}}</h2>
+    <h2>{{{ifEquals post.user_id ../current_user post.id}}} {{post.title}}</h2>
   </div>
   <div>
-    <p>{{post.body}} {{logged_in}}</p>
+    <p>{{post.body}}</p>
   </div>
   <div>
-    <h7>By: {{post.user.name}} @ {{post.createdAt}}</a>
-      {{{ifEquals post.user_id ../current_user post.id}}}
-    </h7>
+    <h7>By: {{post.user.name}} @ {{post.createdAt}}</h7>
   </div>
+  <div>
+    <h7><a href="/comment/{{ post.id }}">Comment</a></h7>
+  </div>
+  {{#each post.comments as |comment| }}
+  <div style="border: 1px solid black;">
+    <p style="margin-left: 25px">{{ comment.comment }} by {{comment.user_id}}</p>
+  </div>
+  {{/each}}
 </div>
 {{/each}}

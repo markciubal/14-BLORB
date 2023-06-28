@@ -14,7 +14,7 @@ module.exports = {
   // Used to check if user ID equals post author ID.
   ifEquals: (a, b, post) => {
     if (a == b) {      
-      return `<a href="/update/${post}">Edit Post</a>`;
+      return `<a href="/update/${post}">📝</a>`;
     } else {
       return;
     }

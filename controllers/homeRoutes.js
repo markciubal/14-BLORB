@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post } = require('../models');
+const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Prevent non logged in users from viewing the homepage
@@ -63,11 +63,15 @@ router.get('/browse', withAuth, async (req, res) => {
         include: [
           {
             model: User
-          }        
+          }, 
+          {
+            model: Comment
+          }     
         ]
       });
       var current_user = req.session.user_id;
       const posts = postData.map((project) => project.get({ plain: true }));
+      console.log(posts);
       res.render('browse', {
         posts,
         logged_in: req.session.logged_in,
@@ -92,8 +96,29 @@ router.get('/update/:id', async (req, res) => {
       console.log(post);
       res.render('update', {
         post,
+        logged_in: req.session.logged_in,
       });
       console.log("Success, kind of.");
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
+});
+
+router.get('/comment/:id', async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect('/');
+  } else {
+    try {
+      const post = await Post.findByPk(req.params.id, {
+        raw: true
+      });
+      // const users = userData.map((project) => project.get({ plain: true }));
+      console.log(post);
+      res.render('comment', {
+        post,
+        logged_in: req.session.logged_in,
+      });
     } catch (error) {
       res.status(500).json(error);
     }

@@ -1,0 +1,18 @@
+<form class="post-form">
+  <input type="text" class="w-100 m-1 mx-0 form-control" id="post_id" aria-describedby="emailHelp" value="{{ post.id }}"
+    style="display: none;">
+  <h3>{{ post.title }}</h3>
+  <div class="form-group">
+    <p>{{ post.body }}</p>
+  </div>
+  <div class="form-group">
+    <label for="body-post">Comment</label>
+    <textarea class="w-100 m-1 mx-0 form-control" id="comment" placeholder="Enter comment"></textarea>
+  </div>
+  <div class="form-group">
+    <button class="w-100 mx-0 m-1 btn btn-primary" type="submit">Comment</button>
+    <small id="noDelete" class="form-text text-muted">For now, there's no way you can delete comments. Only post if
+      you're sure about it.</small>
+  </div>
+</form>
+<script src="/js/comment.js"></script>
