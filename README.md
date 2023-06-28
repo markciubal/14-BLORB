@@ -1,5 +1,5 @@
 
-https://github.com/markciubal/14-Model-View-Controller/assets/1228604/8c387a10-03bb-4761-87ed-e07c417ea0f5
+https://github.com/markciubal/14-Model-View-Controller/assets/1228604/3ff392c1-669d-4f60-bcc0-d3fdf9fe26c0
 
 ## Acceptance Criteria
 
