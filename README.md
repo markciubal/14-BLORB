@@ -64,7 +64,10 @@ npm install
 
 ## Usage
 ```bash
-node index.js
+Enter .env file credentials.
+Set up DB by running "source db/schema.sql" in the terminal.
+Seed database by running "node seeds/seed.js" in the terminal.
+npm start
 ```
 
 ## Contribution
