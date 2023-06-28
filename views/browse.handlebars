@@ -8,8 +8,7 @@
   </div>
   <div>
     <h7>By: {{post.user.name}} @ {{post.createdAt}}</a>
-      {{#ifEquals post.user_id current_user}}
-      {{/ifEquals}}
+      {{{ifEquals post.user_id ../current_user post.id}}}
     </h7>
   </div>
 </div>

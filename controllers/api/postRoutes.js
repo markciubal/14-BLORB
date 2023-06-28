@@ -79,20 +79,27 @@ router.post('/create', async (req, res) => {
   }
 })
 
-router.patch('/update/', async (req, res) => {
-  try {
-    let updateData = await Post.update({
-      title: req.body.title,
-      body: req.body.body,
-    }, {
-      where: {
-        id: req.body.id
-      }
-    });
-    console.log('test', updateData);
-    res.status(200).json("Successfully updated post.");
-  } catch (err) {
-    res.status(400).json(err);
+router.patch('/update', async (req, res) => {
+  console.log(req.session.user_id);
+  console.log(req.body.id);
+    const post = await Post.findByPk(req.body.id, {
+      raw: true
+  });
+  if (post.user_id === req.session.user_id) {
+    try {
+      let updateData = await Post.update({
+        title: req.body.title,
+        body: req.body.body,
+      }, {
+        where: {
+          id: req.body.id
+        }
+      });
+      console.log('test', updateData);
+      res.status(200).json("Successfully updated post.");
+    } catch (err) {
+      res.status(400).json(err);
+    }
   }
 })
 
