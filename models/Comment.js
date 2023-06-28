@@ -25,6 +25,10 @@ Comment.init(
         key: 'id'
       }
     },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     post_id: {
       type: DataTypes.INTEGER,
       allowNull: false,

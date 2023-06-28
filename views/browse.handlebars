@@ -1,21 +1,37 @@
 {{#each posts as |post| }}
-<div class="row align-center">
-  <div>
-    <h2>{{{ifEquals post.user_id ../current_user post.id}}} {{post.title}}</h2>
+<div class="accordion" id="accordion-{{post.id}}"></div>
+<div class="accordion-item">
+  <div class="row align-center">
+    <div>
+      <h2>{{{ifEquals post.user_id ../current_user post.id}}} {{post.title}}</h2>
+    </div>
+    <div>
+      <p>{{post.body}}</p>
+    </div>
+    <div>
+      <h7>By: {{post.user.name}} @ {{post.createdAt}}</h7>
+    </div>
+    <div>
+      <a class="w-100 btn btn-primary" href="/comment/{{ post.id }}">Comment</a>
+    </div>
+    <h2 class="accordion-header" id="heading-{{post.id}}">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{post.id}}"
+        aria-expanded="true" aria-controls="collapse-{{post.id}}">
+        Comments
+      </button>
+    </h2>
+    <div id="collapse-{{post.id}}" class="accordion-collapse collapse show" aria-labelledby="heading-{{post.id}}"
+      data-bs-parent="#accordion-{{post.id}}">
+      <div class="accordion-body">
+        {{#each post.comments as |comment| }}
+        <div>
+          <p style="margin-left: 25px">{{ comment.comment }}</p>
+          <p style="margin-left: 50px; margin-top: -20px;">by {{comment.name}} at {{comment.createdAt}}</p>
+        </div>
+        {{/each}}
+      </div>
+    </div>
   </div>
-  <div>
-    <p>{{post.body}}</p>
-  </div>
-  <div>
-    <h7>By: {{post.user.name}} @ {{post.createdAt}}</h7>
-  </div>
-  <div>
-    <h7><a href="/comment/{{ post.id }}">Comment</a></h7>
-  </div>
-  {{#each post.comments as |comment| }}
-  <div style="border: 1px solid black;">
-    <p style="margin-left: 25px">{{ comment.comment }} by {{comment.user_id}}</p>
-  </div>
-  {{/each}}
+</div>
 </div>
 {{/each}}
