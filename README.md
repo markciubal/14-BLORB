@@ -1,3 +1,6 @@
+
+https://github.com/markciubal/14-Model-View-Controller/assets/1228604/a9e76892-d78a-4100-817d-d662c772b1f3
+
 ## Acceptance Criteria
 
 ```md
