@@ -18,7 +18,7 @@ https://github.com/markciubal/14-Model-View-Controller/assets/1228604/3ff392c1-6
 - [Credits](#credits)
 
 ## Description
-Blorb is the Model, View, Controller (MVC) homework was an exercise in using Handlebars as an MVC framework. By using Express with Handlebars, we were able to build out templates for our sites and separate our logic for the application to be organized. I learned quite a lot from this project, particularly with how routes work, and how data can be passed to the views by the controllers, while fetching data using the models.
+BLORB (Blog, log, or Read Blogs) is the Model, View, Controller (MVC) homework was an exercise in using Handlebars as an MVC framework. By using Express with Handlebars, we were able to build out templates for our sites and separate our logic for the application to be organized. I learned quite a lot from this project, particularly with how routes work, and how data can be passed to the views by the controllers, while fetching data using the models.
 
 This application was meant to satisfy the following user story:
 
