@@ -1,3 +1,6 @@
+## Deployment URL
+[⚠️ https://blorb-97a19c560081.herokuapp.com/](https://blorb-97a19c560081.herokuapp.com/)
+
 https://github.com/markciubal/14-Model-View-Controller/assets/1228604/3ff392c1-669d-4f60-bcc0-d3fdf9fe26c0
 
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
@@ -15,7 +18,7 @@ https://github.com/markciubal/14-Model-View-Controller/assets/1228604/3ff392c1-6
 - [Credits](#credits)
 
 ## Description
-The Model, View, Controller (MVC) homework was an exercise in using Handlebars as an MVC framework. By using Express with Handlebars, we were able to build out templates for our sites and separate our logic for the application to be organized. I learned quite a lot from this project, particularly with how routes work, and how data can be passed to the views by the controllers, while fetching data using the models.
+Blorb is the Model, View, Controller (MVC) homework was an exercise in using Handlebars as an MVC framework. By using Express with Handlebars, we were able to build out templates for our sites and separate our logic for the application to be organized. I learned quite a lot from this project, particularly with how routes work, and how data can be passed to the views by the controllers, while fetching data using the models.
 
 This application was meant to satisfy the following user story:
 
