@@ -1,7 +1,7 @@
 ## Deployment URL
 [⚠️ https://blorb-97a19c560081.herokuapp.com/](https://blorb-97a19c560081.herokuapp.com/)
 
-https://github.com/markciubal/14-Model-View-Controller/assets/1228604/3ff392c1-669d-4f60-bcc0-d3fdf9fe26c0
+https://github.com/markciubal/14-BLORB/assets/1228604/3ff392c1-669d-4f60-bcc0-d3fdf9fe26c0
 
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 
